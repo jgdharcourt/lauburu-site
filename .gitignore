@@ -1,0 +1,9 @@
+# Dossier de travail (scripts de préparation des visuels + archives) — non publié
+_src/
+
+# Système
+.DS_Store
+
+# Tooling local
+.claude/
+.vercel/
