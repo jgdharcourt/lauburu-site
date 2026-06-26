@@ -245,7 +245,8 @@ h1,h2,h3{ color:var(--ink); margin:0; line-height:1.18; font-weight:700; }
   .burger{ display:flex; }
   .head.open nav{ display:flex; position:absolute; top:100%; left:0; right:0; flex-direction:column; background:var(--bg); border-bottom:1px solid var(--line); padding:8px var(--gutter) 16px; margin:0; }
   .head.open nav a{ padding:12px 0; border-bottom:1px solid var(--line); }
-  .head.open .nav-order{ display:block; color:var(--red); font-weight:700; }
+  .head.open .nav-order{ display:block; margin-top:14px; padding:14px 18px; background:var(--red); color:#fff; font-weight:700; text-align:center; border:none; border-radius:9px; box-shadow:0 8px 20px rgba(120,28,33,.24); }
+  .head.open .nav-order:hover{ background:var(--red-dark); }
   .args__grid{ grid-template-columns:1fr; }
   .foot .wrap{ grid-template-columns:1fr; }
   .foot__bottom .wrap{ flex-direction:column; }
