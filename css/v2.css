@@ -73,7 +73,7 @@ h1,h2,h3{ color:var(--ink); margin:0; line-height:1.18; font-weight:700; }
 .head .head-cta{ margin-left:8px; }
 .head .nav-order{ display:none; }   /* visible uniquement dans le menu mobile */
 .burger{ display:none; margin-left:auto; width:42px; height:42px; border:1px solid var(--line-strong); border-radius:8px; background:var(--surface); flex-direction:column; gap:4px; align-items:center; justify-content:center; cursor:pointer; }
-.burger span{ width:20px; height:2px; background:var(--ink); }
+.burger span{ width:20px; height:2px; background:var(--ink); transition:transform .25s var(--ease), opacity .2s var(--ease); }
 
 /* ---------- HERO (fiche d'accroche, 2 colonnes) ---------- */
 .hero{ background:#faf2e5; border-bottom:1px solid var(--line); }
@@ -243,10 +243,18 @@ h1,h2,h3{ color:var(--ink); margin:0; line-height:1.18; font-weight:700; }
   .topbar .left{ display:none; }
   .head nav, .head .head-cta{ display:none; }
   .burger{ display:flex; }
-  .head.open nav{ display:flex; position:absolute; top:100%; left:0; right:0; flex-direction:column; background:var(--bg); border-bottom:1px solid var(--line); padding:8px var(--gutter) 16px; margin:0; }
-  .head.open nav a{ padding:12px 0; border-bottom:1px solid var(--line); }
-  .head.open .nav-order{ display:block; margin-top:14px; padding:14px 18px; background:var(--red); color:#fff; font-weight:700; text-align:center; border:none; border-radius:9px; box-shadow:0 8px 20px rgba(120,28,33,.24); }
+  /* menu mobile plein écran */
+  .head.open nav{ display:flex; position:fixed; inset:0; z-index:45; flex-direction:column; justify-content:center; gap:4px; background:var(--bg); border:none; margin:0; padding:clamp(118px,17vh,165px) var(--gutter) 44px; overflow-y:auto; }
+  .head.open nav a{ font-size:19px; padding:16px 0; border-bottom:1px solid var(--line); }
+  .head.open .nav-order{ display:block; margin-top:22px; padding:16px 18px; background:var(--red); color:#fff; font-weight:700; font-size:17px; text-align:center; border:none; border-radius:10px; box-shadow:0 8px 20px rgba(120,28,33,.24); }
   .head.open .nav-order:hover{ background:var(--red-dark); }
+  /* logo, croix (X) et bandeau restent cliquables au-dessus de l'overlay */
+  .head.open .logo, .head.open .burger{ position:relative; z-index:46; }
+  body:has(.head.open) .topbar{ position:relative; z-index:46; }
+  body:has(.head.open){ overflow:hidden; }
+  .head.open .burger span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+  .head.open .burger span:nth-child(2){ opacity:0; }
+  .head.open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
   .args__grid{ grid-template-columns:1fr; }
   .foot .wrap{ grid-template-columns:1fr; }
   .foot__bottom .wrap{ flex-direction:column; }
